@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div>
-            <img src="images/0-15268996-drawing-o2W3rE8JEDMlZQeN32ApAg.png" style={{ width: "100px", height: "50px" }} />
+            <img src="/images/0-15268996-drawing-o2W3rE8JEDMlZQeN32ApAg.png" style={{ width: "100px", height: "50px" }} />
             <p className="font-inter text-sm leading-relaxed max-w-xs" style={{ color: "rgba(17,40,100,0.5)" }}>
               National Engineering Science Olympiad — Kazakhstan's premier interdisciplinary science competition.
             </p>

@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server";
 const locales = ["en", "ru", "kz"];
 const defaultLocale = "en";
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
   const pathnameHasLocale = locales.some(
@@ -16,7 +16,7 @@ export function proxy(request: NextRequest) {
   // Redirect if there is no locale
   const locale = defaultLocale;
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  
+
   // e.g. incoming request is /register
   // The new URL is now /en/register
   return NextResponse.redirect(request.nextUrl);
