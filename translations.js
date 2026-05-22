@@ -1,11 +1,10 @@
-const fs = require('fs');
+// Импортируем базовые JSON-файлы напрямую (Next.js умеет это из коробки)
+import en from './public/locales/en/common.json';
+import ru from './public/locales/ru/common.json';
+import kz from './public/locales/kz/common.json';
 
-const extractAndMerge = () => {
-  const en = JSON.parse(fs.readFileSync('public/locales/en/common.json'));
-  const ru = JSON.parse(fs.readFileSync('public/locales/ru/common.json'));
-  const kz = JSON.parse(fs.readFileSync('public/locales/kz/common.json'));
-
-  const newEn = {
+export const translations = {
+  en: {
     ...en,
     rules: {
       compFormat: "Competition Format",
@@ -74,9 +73,8 @@ const extractAndMerge = () => {
       errFillAll: "Please fill in all fields for Participant",
       errNetwork: "Network error. Please try again."
     }
-  };
-
-  const newRu = {
+  },
+  ru: {
     ...ru,
     rules: {
       compFormat: "Формат Соревнования",
@@ -145,9 +143,8 @@ const extractAndMerge = () => {
       errFillAll: "Пожалуйста, заполните все поля для Участника",
       errNetwork: "Ошибка сети. Пожалуйста, попробуйте еще раз."
     }
-  };
-
-  const newKz = {
+  },
+  kz: {
     ...kz,
     rules: {
       compFormat: "Жарыс Форматы",
@@ -161,7 +158,7 @@ const extractAndMerge = () => {
       },
       s1: "Бірінші Кезең — Онлайн",
       s1Items: {
-        l1: "1-тур", t1: "Есептер шығару", tag1: "3 сағат", d1: "Математика, физика, химия және биологиядан 6-7 пәнаралық есеп. Барлық есептерге 3 сағат беріледі. Соңғы шешімдерді капитан жіберуі тиіс.",
+        l1: "1-тур", t1: "Есептер шығару", tag1: "3 сағат", d1: "Математика, physical, химия және биологиядан 6-7 пәнаралық есеп. Барлық есептерге 3 сағат беріледі. Соңғы шешімдерді капитан жіберуі тиіс.",
         l2: "2-тур", t2: "Кейс-стади", tag2: "2 күн", d2: "Командалар кейсті дедлайнға дейін 2 күн бұрын алады. Дайын есеп PDF немесе DOCX форматында электронды түрде жіберіледі."
       },
       s2: "Екінші Кезең — Офлайн",
@@ -207,7 +204,7 @@ const extractAndMerge = () => {
       consent1: "Мен дербес деректерді жинауға, өңдеуге және сақтауға ",
       consentLink1: "№ 03-08/01 Тізімге",
       consent2: " сәйкес келісім беремін. Қордың ",
-      consentLink2: "Дербес деректер саясаты мен тізімін",
+      consentLink2: "Дербес derekter саясаты мен тізімін",
       consent3: " Қор веб-сайтынан таба аласыз.",
       btnLoading: "Тіркелуде…",
       btnSubmit: "Команданы Тіркеу",
@@ -216,10 +213,5 @@ const extractAndMerge = () => {
       errFillAll: "Қатысушының барлық өрістерін толтырыңыз - ",
       errNetwork: "Желі қатесі. Қайта байқап көріңіз."
     }
-  };
-
-  fs.writeFileSync('public/locales/en/common.json', JSON.stringify(newEn, null, 2));
-  fs.writeFileSync('public/locales/ru/common.json', JSON.stringify(newRu, null, 2));
-  fs.writeFileSync('public/locales/kz/common.json', JSON.stringify(newKz, null, 2));
+  }
 };
-extractAndMerge();
