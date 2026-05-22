@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #112864;
+  --color-navy-light: #1a3a8f;
+  --font-unbounded: 'Unbounded', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-raleway: 'Raleway', sans-serif;
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #ffffff;
+  color: #112864;
+  font-family: 'Inter', sans-serif;
+  /* Global site-wide grid */
+  background-image:
+    linear-gradient(to right, rgba(17,40,100,0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17,40,100,0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-attachment: fixed;
+}

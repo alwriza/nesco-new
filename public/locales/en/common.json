@@ -1,0 +1,162 @@
+{
+  "Home": "Home",
+  "Rules": "Rules",
+  "Team": "Team",
+  "Register": "Register",
+  "hero": {
+    "title": "National<br />Engineering<br />Science<br />Olympiad<br />",
+    "description": "An innovative competition developing analytical thinking, teamwork, and an interdisciplinary approach — solving real engineering challenges in conditions that mirror actual scientific and industrial environments.",
+    "registerBtn": "Register Your Team →",
+    "viewRulesBtn": "View Rules",
+    "scroll": "Scroll"
+  },
+  "stats": {
+    "participants": "Participants",
+    "cities": "Cities",
+    "stages": "Stages",
+    "partners": "Partners",
+    "prizes": "in Prizes"
+  },
+  "about": {
+    "subtitle": "About NEScO",
+    "title": "Science meets<br />real engineering",
+    "p1": "Unlike traditional olympiads, NEScO offers participants the opportunity to solve real engineering challenges in conditions that closely resemble actual scientific and industrial environments. Teams work across disciplines — math, physics, chemistry, biology — to build genuine problem-solving competencies.",
+    "p2": "In NEScO 2025, teams created and presented research on cancer drugs, antineutrino detection for nuclear power plants, and water filtration systems — all during the final round.",
+    "features": {
+      "grant": {
+        "title": "Gold Medal Grant",
+        "desc": "4 full bachelor's grants totaling $80,000+ from KBTU"
+      },
+      "prize": {
+        "title": "Prize Fund",
+        "desc": "$1,000 cash prize + $500 merch for tournament winners"
+      },
+      "expert": {
+        "title": "Expert Team",
+        "desc": "10+ IPhO, IChO, IBO, EuPhO prize-winners + 5 professors"
+      },
+      "internship": {
+        "title": "Research Internships",
+        "desc": "Science internship opportunities with partner companies"
+      }
+    }
+  },
+  "stages": {
+    "subtitle": "Competition Format",
+    "title": "How it works",
+    "stage1": {
+      "title": "First Stage",
+      "subtitle": "Online · 2 Rounds",
+      "desc": "Round 1 — 6–7 problems across math, physics, chemistry, and biology. 3 hours, captain submits. Round 2 — a case study received 2 days in advance, submitted as PDF or DOCX."
+    },
+    "stage2": {
+      "title": "Second Stage",
+      "subtitle": "In-person · KBTU, Almaty",
+      "desc": "Round 1 — 8 interdisciplinary problems over 4–5 hours. Round 2 — case study with jury presentation. Appeals allowed within 5 hours of results."
+    },
+    "cs": {
+      "title": "Case Study",
+      "subtitle": "Both Stages",
+      "desc": "Two cases: scientific and engineering. Written report up to 40 pages in APA 7 format. Originality ≥ 70%, AI content ≤ 20%. Plus a live presentation to the jury."
+    },
+    "fullRules": "Full competition rules"
+  },
+  "partners": {
+    "title": "Partners & Sponsors"
+  },
+  "cta": {
+    "subtitle": "NEScO 2026",
+    "title": "Ready to compete?",
+    "desc": "Teams of 4–5 students from grades 9–12. Form your team, choose a captain, and register before the deadline.",
+    "registerBtn": "Register Your Team →"
+  },
+  "rules": {
+    "compFormat": "Competition Format",
+    "title": "Rules &<br />Regulations",
+    "req": "Team Requirements",
+    "reqItems": {
+      "t1": "Team Size",
+      "d1": "4 to 5 students per team, from grades 9 to 12.",
+      "t2": "Captain",
+      "d2": "Each team must select a captain responsible for registration, submissions, and communication with organizers.",
+      "t3": "School",
+      "d3": "All members may be from the same or different schools — provided this is agreed upon with the organizers in advance.",
+      "t4": "Conduct",
+      "d4": "Phones, reference materials, and electronic devices are strictly prohibited unless explicitly allowed. Violations by any member may disqualify the entire team."
+    },
+    "s1": "First Stage — Online",
+    "s1Items": {
+      "l1": "Round 1",
+      "t1": "Problem Solving",
+      "tag1": "3 hours",
+      "d1": "6–7 interdisciplinary problems spanning mathematics, physics, chemistry, and biology. Teams have 3 hours to complete all problems. The captain is responsible for submitting the final solutions.",
+      "l2": "Round 2",
+      "t2": "Case Study",
+      "tag2": "2 days",
+      "d2": "Teams receive their case 2 days before the submission deadline. The completed report is submitted electronically as a PDF or DOCX file."
+    },
+    "s2": "Second Stage — In-Person",
+    "venue": "Venue",
+    "venueLoc": "KBTU — Kazakh-British Technical University, Almaty",
+    "s2Items": {
+      "l1": "Round 1",
+      "t1": "Interdisciplinary Problems",
+      "tag1": "4–5 hours",
+      "d1": "8 complex problems requiring cross-disciplinary reasoning. Teams have 4–5 hours. All members participate simultaneously.",
+      "l2": "Round 2",
+      "t2": "Case Study Presentation",
+      "tag2": "Live jury",
+      "d2": "Teams present their case study report to a panel of expert judges. Appeals against results are permitted within 5 hours of the results announcement."
+    },
+    "cs": "Case Study Rules",
+    "csItems": {
+      "l1": "Format",
+      "v1": "APA 7",
+      "d1": "All written reports must follow APA 7th edition citation and formatting standards.",
+      "l2": "Length",
+      "v2": "≤ 40 pages",
+      "d2": "The written report must not exceed 40 pages including references and appendices.",
+      "l3": "Originality",
+      "v3": "≥ 70%",
+      "d3": "Minimum originality score. AI-generated content must not exceed 20% of the total report."
+    },
+    "csNote1": "Two case types:",
+    "csNote2": " one scientific case and one engineering case. Teams present their findings to a jury panel during the Second Stage final."
+  },
+  "register": {
+    "successTitle": "Team Registered!",
+    "successDesc1": "Your team",
+    "successDesc2": "has been successfully registered for NEScO 2026. The captain will receive a confirmation email shortly.",
+    "regAnother": "Register another team",
+    "subtitle": "NEScO 2026",
+    "title": "Register your team",
+    "desc": "Open to teams of 4–5 students in grades 9–12. The team name must be unique. Participant 1 is the captain and primary contact.",
+    "teamInfo": "Team Information",
+    "teamNameLabel": "Team Name *",
+    "teamNamePlh": "Enter a unique team name",
+    "part": "Participant",
+    "capt": "(Captain)",
+    "nameLabel": "Full Name *",
+    "namePlh": "First Last Name",
+    "gradeLabel": "Grade *",
+    "gradeSelect": "— select —",
+    "emailLabel": "Email *",
+    "emailPlh": "example@mail.com",
+    "phoneLabel": "Phone *",
+    "phonePlh": "+7 000 000 00 00",
+    "schoolLabel": "School *",
+    "schoolPlh": "School name and city",
+    "addPart": "Add 5th Participant",
+    "consent1": "I consent to the collection, processing and storage of Personal Data in accordance with the ",
+    "consentLink1": "List No. 03-08/01",
+    "consent2": ". The ",
+    "consentLink2": "Foundation's Personal Data Policy and List",
+    "consent3": " can be found on the Foundation's website.",
+    "btnLoading": "Registering…",
+    "btnSubmit": "Register Team",
+    "errNoName": "Please enter a team name.",
+    "errNoConsent": "Please accept the data processing consent.",
+    "errFillAll": "Please fill in all fields for Participant",
+    "errNetwork": "Network error. Please try again."
+  }
+}
