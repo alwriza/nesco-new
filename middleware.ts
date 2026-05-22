@@ -5,26 +5,31 @@ const locales = ["en", "ru", "kz"];
 const defaultLocale = "en";
 
 export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
+
+  // Проверяем, есть ли уже локаль в пути
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+  // ИСПРАВЛЕНО: Вместо пустого return возвращаем NextResponse.next(), 
+  // чтобы просто пропустить пользователя на существующую языковую страницу
+  if (pathnameHasLocale) {
+    return NextResponse.next();
+  }
 
-  // Redirect if there is no locale
+  // Роняем редирект, если локали нет
   const locale = defaultLocale;
-  request.nextUrl.pathname = `/${locale}${pathname}`;
 
-  // e.g. incoming request is /register
-  // The new URL is now /en/register
-  return NextResponse.redirect(request.nextUrl);
+  // ИСПРАВЛЕНО: Безопасное создание URL для редиректа на Vercel
+  const redirectUrl = new URL(`/${locale}${pathname}`, request.url);
+
+  return NextResponse.redirect(redirectUrl);
 }
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
+    // Пропускаем системные папки и статику
     '/((?!api|_next/static|_next/image|favicon.ico|images|events|locales).*)',
   ],
 };
