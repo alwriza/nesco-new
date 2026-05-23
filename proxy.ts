@@ -4,10 +4,10 @@ import type { NextRequest } from "next/server";
 const locales = ["en", "ru", "kz"];
 const defaultLocale = "en";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. Игнорируем файлы, картинки и статику сразу в коде, чтобы не ломать роутер
+  // 1. Пропускаем всю статику и системные файлы
   if (
     pathname.startsWith('/images/') ||
     pathname.startsWith('/events/') ||
@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 2. Проверяем наличие локали
+  // 2. Проверяем, есть ли уже локаль в пути
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
@@ -26,16 +26,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 3. Безопасный редирект, если локали нет
-  const locale = defaultLocale;
-  const redirectUrl = new URL(`/${locale}${pathname}`, request.url);
+  // 3. БЕЗОПАСНЫЙ редирект без ручного создания `new URL()`
+  // Клонируем внутренний объект пути Next.js и просто мутируем его
+  const url = request.nextUrl.clone();
+  url.pathname = `/${defaultLocale}${pathname}`;
 
-  return NextResponse.redirect(redirectUrl);
+  return NextResponse.redirect(url);
 }
 
-// Конфиг матчера остается, но делаем его максимально простым
 export const config = {
   matcher: [
+    // Максимально надёжный матчер: исключает внутренности next, статику и api
     '/((?!api|_next/static|_next/image|_next/data|assets|favicon.ico).*)',
   ],
 };
