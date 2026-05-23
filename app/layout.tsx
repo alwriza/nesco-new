@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+// Импортируем твои глобальные стили (проверь путь, обычно они лежат в app/globals.css)
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "NEScO — National Engineering Science Olympiad",
@@ -8,12 +10,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { locale?: string };
 }) {
+  const locale = params?.locale || "en";
+
   return (
-    <html>
-      <body>{children}</body>
+    <html lang={locale}>
+      <body className="antialiased">
+        {children}
+      </body>
     </html>
   );
 }
