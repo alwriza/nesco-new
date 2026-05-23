@@ -7,7 +7,7 @@ const defaultLocale = "en";
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. Пропускаем всю статику и системные файлы
+  // Игнорируем статику
   if (
     pathname.startsWith('/images/') ||
     pathname.startsWith('/events/') ||
@@ -17,7 +17,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 2. Проверяем, есть ли уже локаль в пути
+  // Проверяем наличие локали
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
@@ -26,17 +26,17 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 3. БЕЗОПАСНЫЙ редирект без ручного создания `new URL()`
-  // Клонируем внутренний объект пути Next.js и просто мутируем его
-  const url = request.nextUrl.clone();
-  url.pathname = `/${defaultLocale}${pathname}`;
+  // Убираем дублирование слэша для корня
+  const cleanPathname = pathname === '/' ? '' : pathname;
 
-  return NextResponse.redirect(url);
+  // Создаем чистый URL вида /en или /en/rules
+  const redirectUrl = new URL(`/${defaultLocale}${cleanPathname}`, request.url);
+
+  return NextResponse.redirect(redirectUrl);
 }
 
 export const config = {
   matcher: [
-    // Максимально надёжный матчер: исключает внутренности next, статику и api
     '/((?!api|_next/static|_next/image|_next/data|assets|favicon.ico).*)',
   ],
 };
