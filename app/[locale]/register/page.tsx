@@ -30,18 +30,37 @@ export default function RegisterPage() {
   const handleSubmit = async () => {
     if (!teamName.trim()) { setErrorMsg(t("register.errTeamName", "Please enter a team name.")); setStatus("error"); return; }
     if (!consent) { setErrorMsg(t("register.errConsent", "Please accept the data processing consent.")); setStatus("error"); return; }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+
     for (let i = 0; i < participants.length; i++) {
       const p = participants[i];
       if (!p.fullName || !p.grade || !p.email || !p.phone || !p.school) {
         setErrorMsg(t("register.errFields", "Please fill in all fields for Participant {{num}}.").replace("{{num}}", (i + 1).toString())); setStatus("error"); return;
       }
+      if (!emailRegex.test(p.email)) {
+        setErrorMsg(t("register.errEmail", "Please enter a valid email for Participant {{num}}.").replace("{{num}}", (i + 1).toString())); setStatus("error"); return;
+      }
+      if (!phoneRegex.test(p.phone)) {
+        setErrorMsg(t("register.errPhone", "Please enter a valid phone number (digits only) for Participant {{num}}.").replace("{{num}}", (i + 1).toString())); setStatus("error"); return;
+      }
     }
     setStatus("loading"); setErrorMsg("");
     try {
+      const payload: any = { team_name: teamName };
+      participants.forEach((p, i) => {
+        const num = i + 1;
+        payload[`p${num}_name`] = p.fullName;
+        payload[`p${num}_grade`] = p.grade;
+        payload[`p${num}_email`] = p.email;
+        payload[`p${num}_phone`] = p.phone;
+        payload[`p${num}_school`] = p.school;
+      });
+
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ teamName, participants }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (!res.ok) { setErrorMsg(data.error || t("register.errFail", "Registration failed.")); setStatus("error"); }
