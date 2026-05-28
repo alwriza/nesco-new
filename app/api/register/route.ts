@@ -6,8 +6,35 @@ export async function POST(request: NextRequest) {
     const data = await request.json();
     
     // Basic validation
-    if (!data.team_name) {
+    if (!data.team_name || data.team_name.trim() === "") {
       return NextResponse.json({ success: false, error: "Team name is required" }, { status: 400 });
+    }
+
+    // Validate that at least 4 participants have all fields filled
+    for (let i = 1; i <= 4; i++) {
+      const name = data[`p${i}_name`];
+      const grade = data[`p${i}_grade`];
+      const email = data[`p${i}_email`];
+      const phone = data[`p${i}_phone`];
+      const school = data[`p${i}_school`];
+
+      if (!name || !grade || !email || !phone || !school) {
+        return NextResponse.json({ 
+          success: false, 
+          error: `Participant ${i} is missing required fields (name, grade, email, phone, or school).` 
+        }, { status: 400 });
+      }
+
+      // Basic regex validation for email and phone
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+
+      if (!emailRegex.test(email)) {
+        return NextResponse.json({ success: false, error: `Invalid email for Participant ${i}.` }, { status: 400 });
+      }
+      if (!phoneRegex.test(phone)) {
+        return NextResponse.json({ success: false, error: `Invalid phone number for Participant ${i}.` }, { status: 400 });
+      }
     }
 
     const sql = neon(process.env.DATABASE_URL!);

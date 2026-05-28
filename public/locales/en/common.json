@@ -158,5 +158,28 @@
     "errNoConsent": "Please accept the data processing consent.",
     "errFillAll": "Please fill in all fields for Participant",
     "errNetwork": "Network error. Please try again."
+  },
+  "team": {
+    "subtitle": "The People Behind NEScO",
+    "title": "Our Team",
+    "desc": "10+ top Olympiad winners from Kazakhstan — IPhO, IJSO, EuPhO, IChO, IBO prize-winners — alongside students from MIT, KAIST, CityU, Caltech, NYU, NU, and Colby University, and 5 professors from leading Kazakhstani universities.",
+    "orgTeam": "Organizing Team",
+    "partnersTitle": "Partners",
+    "partnersDesc": "Organizations that made NEScO 2025 possible.",
+    "roles": {
+      "organizer": "Organizer",
+      "designer": "Head Designer",
+      "author": "Task Author",
+      "ac_chem": "Academic Committee (Chemistry)",
+      "ac_bio": "Academic Committee (Biology)",
+      "ac_phys": "Academic Committee (Physics)",
+      "jury": "Jury"
+    },
+    "partnerRoles": {
+      "partner": "Partner",
+      "venue": "Venue Partner",
+      "edu": "Educational Partner",
+      "science": "Science Partner"
+    }
   }
 }
