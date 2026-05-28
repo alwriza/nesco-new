@@ -10,18 +10,16 @@ const bg = (o: number) => `rgba(17,40,100,${o})`;
 // ─── Add your event photos here ───────────────────────────────────────────────
 // Place files in /public/events/ and list them below:
 const eventPhotos: string[] = [
-  "/events/_DSC0553.jpg",
-  "/events/4Y7A0627.JPG",
-  "/events/4Y7A0683.JPG",
-  "/events/4Y7A0721.JPG",
-  "/events/4Y7A0857.JPG",
-  "/events/4Y7A0922.JPG",
-  "/events/4Y7A0959.JPG",
-  "/events/4Y7A0981.JPG",
-  "/events/4Y7A1007.JPG",
-  "/events/4Y7A1022.JPG"
-  // "/events/photo-2.jpg",
-  // ...up to 10
+  "/events/5242535879090315396.jpg",
+  "/events/5242535879090315397.jpg",
+  "/events/5242535879090315398.jpg",
+  "/events/5242535879090315399.jpg",
+  "/events/5242535879090315400.jpg",
+  "/events/5242535879090315402.jpg",
+  "/events/5242535879090315403.jpg",
+  "/events/5242535879090315404.jpg",
+  "/events/5242535879090315405.jpg",
+  "/events/5242535879090315396.jpg"
 ];
 
 const partners = [
@@ -50,7 +48,7 @@ export default function Home() {
         {/* Photo background */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/events/4Y7A0922.JPG"
+            src="/events/5242535879090315401.jpg"
             alt="NEScO 2025"
             className="w-full h-full object-cover"
           />
